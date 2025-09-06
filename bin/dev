@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+if [ ! -d "node_modules" ]; then
+  echo "Node modules not installed. Please run 'npm install' or './bin/setup' first."
+  exit 1
+fi
+
 export PORT="${PORT:-3000}"
 
 if command -v overmind 1> /dev/null 2>&1

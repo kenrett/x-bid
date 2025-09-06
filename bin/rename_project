@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require "fileutils"
-require "colorize"
 
 def gsub_in_file(path, from, to)
   text = File.read(path)
