@@ -28,8 +28,19 @@
         <%= form.submit "Sign in", class: "form-submit-button w-full" %>
       <% end %>
 
-      <div class="mt-6 text-sm text-center">
-        <%= link_to "Forgot password?", new_password_path, class: "form-link" %>
+      <div class="mt-6">
+        <div class="relative">
+          <div class="absolute flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">
+              <%= link_to "Forgot password?", new_password_path, class: "form-link" %>
+              <span class="px-2">|</span>
+              <%= link_to "Sign up", new_registration_path, class: "form-link" %>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
