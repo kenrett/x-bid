@@ -19,12 +19,18 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%= vite_stylesheet_tag "application" %>
     <%= vite_client_tag %>
-    <%= vite_typescript_tag "application" %>
+    <%= vite_react_refresh_tag %>
+    <%= vite_javascript_tag "application" %>
+    <%= vite_stylesheet_tag "application" %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="header-container"></div>
+    <div id="react-app"></div>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,25 +1,14 @@
-import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import ViteRails from "vite-plugin-rails";
+import RubyPlugin from "vite-plugin-ruby";
 
 export default defineConfig({
   ssr: {
     // prebuilds ssr.js so we can drop node_modules from the resulting container
     noExternal: true,
   },
-  plugins: [
-    react(),
-    tailwindcss(),
-    ViteRails({
-      envVars: { RAILS_ENV: "development" },
-      envOptions: { defineOn: "import.meta.env" },
-      fullReload: {
-        additionalPaths: ["config/routes.rb", "app/views/**/*"],
-        delay: 300,
-      },
-    }),
-  ],
+  plugins: [react(), tailwindcss(), RubyPlugin()],
   build: { sourcemap: false },
   server: {
     host: true, // Listen on all addresses

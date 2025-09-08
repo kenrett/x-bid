@@ -12,10 +12,10 @@
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "rollup": "^4.44.2",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.1.11",    
+    "@vitejs/plugin-react": "^5.0.2",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.2",
-    "vite-plugin-rails": "^0.5.0",
     "vite-plugin-ruby": "^5.1.1"
   },
   "scripts": {
@@ -25,8 +25,7 @@
     "format": "prettier --check 'app/frontend/**/*.{ts,tsx,js}'",
     "format:fix": "npm run format -- --write"
   },
-  "dependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
+  "dependencies": {    
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.8.3"
