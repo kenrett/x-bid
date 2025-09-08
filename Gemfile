@@ -56,5 +56,3 @@ group :deploy do
   # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
   gem "kamal", require: false
 end
-
-gem "vite_rails", "~> 3.0"
