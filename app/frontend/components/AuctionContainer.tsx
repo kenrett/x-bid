@@ -7,6 +7,7 @@ interface AuctionData {
   title: string;
   description: string;
   starting_price: number;
+  image_url: string;
 }
 
 export function AuctionContainer() {
