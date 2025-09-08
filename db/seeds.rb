@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+20.times do |i|
+  Auction.create!(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph(sentence_count: 3),
+    starting_price: Faker::Commerce.price(range: 10..1000)
+  )
+  p "*"
+end

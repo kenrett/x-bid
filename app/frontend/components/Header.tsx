@@ -1,12 +1,12 @@
 import logo from '../images/xbid_logo.png';
 
-export default function Header() {
+export function Header() {
 
-	return (
-		<header>
-			<a href="/">
-				<img src={logo} alt="X-Bid Logo" style={{ height: '150px' }} />
-			</a>
-		</header>
-	);
+  return (
+    <header className="w-full border-2 border-black">
+      <a href="/">
+        <img src={logo} alt="X-Bid Logo" className="h-36" />
+      </a>
+    </header>
+  );
 }
