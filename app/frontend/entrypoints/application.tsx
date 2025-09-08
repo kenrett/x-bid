@@ -1,9 +1,9 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-import { AuctionContainer, Header } from '../components';
+import { AuctionContainer, Header } from "../components";
 
-const rootElement = document.getElementById('react-app');
+const rootElement = document.getElementById("react-app");
 
 if (rootElement) {
   const root = createRoot(rootElement);
@@ -11,8 +11,10 @@ if (rootElement) {
     <React.StrictMode>
       <Header />
       <AuctionContainer />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 } else {
-  console.error('Root element #react-app not found. Is your layout tag correct?');
+  console.error(
+    "Root element #react-app not found. Is your layout tag correct?",
+  );
 }

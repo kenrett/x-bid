@@ -1,7 +1,6 @@
-import logo from '../images/xbid_logo.png';
+import logo from "../images/xbid_logo.png";
 
 export function Header() {
-
   return (
     <header className="w-full border-2 border-black">
       <a href="/">

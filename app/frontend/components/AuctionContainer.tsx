@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { Auction } from './Auction';
+import { Auction } from "./Auction";
 
 interface AuctionData {
   id: number;
@@ -13,10 +13,10 @@ export function AuctionContainer() {
   const [auctions, setAuctions] = useState<AuctionData[]>([]);
 
   useEffect(() => {
-    fetch('/auctions')
+    fetch("/auctions")
       .then((response) => response.json())
       .then((data: AuctionData[]) => setAuctions(data))
-      .catch((error) => console.error('Error fetching auctions:', error));
+      .catch((error) => console.error("Error fetching auctions:", error));
   }, []);
 
   return (
