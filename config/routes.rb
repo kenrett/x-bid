@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resource :registration, only: %i[new create]
   resources :passwords, param: :token
 
-  root "home#show"
+  root "app#show"
 end
