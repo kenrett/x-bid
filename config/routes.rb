@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
 
   resources :auctions, only: %i[index]
+  get "current_user" => "current_user#show"
 
   root "app#show"
 end
