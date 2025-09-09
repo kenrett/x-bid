@@ -1,8 +1,12 @@
 import logo from "../images/xbid_logo.png";
 
-export function Header() {
+interface HeaderProps {
+  isAdmin: boolean;
+}
+
+export function Header({ isAdmin }: HeaderProps) {
   return (
-    <header className="w-full border-2 border-black">
+    <header className={`w-full border-2 border-black ${isAdmin ? 'bg-red-500' : ''}`}>
       <a href="/">
         <img src={logo} alt="X-Bid Logo" className="h-36" />
       </a>
