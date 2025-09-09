@@ -4,11 +4,12 @@ interface AuctionProps {
   description: string;
   starting_price: number;
   image_url: string;
+  onClick: (id: number) => void;
 }
 
-export function Auction({ id, title, description, starting_price, image_url }: AuctionProps) {
+export function Auction({ id, title, description, starting_price, image_url, onClick }: AuctionProps) {
   return (
-    <a href={`/auctions/${id}`} className="block border border-gray-300 rounded-lg p-4 shadow-md w-full md:w-1/3 lg:w-1/4 transition-transform duration-200 hover:scale-105 hover:shadow-xl">
+    <div onClick={() => onClick(id)} className="cursor-pointer block border border-gray-300 rounded-lg p-4 shadow-md w-full md:w-1/3 lg:w-1/4 transition-transform duration-200 hover:scale-105 hover:shadow-xl">
       <div>
         <img src={image_url} alt={title} className="w-full h-48 object-cover mb-4 rounded-md" />
         <h2 className="text-xl font-bold mb-2">{title}</h2>
@@ -17,6 +18,6 @@ export function Auction({ id, title, description, starting_price, image_url }: A
           Starting at: ${starting_price.toFixed(2)}
         </p>
       </div>
-    </a>
+    </div>
   );
 }
