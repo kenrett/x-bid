@@ -46,7 +46,7 @@ group :development, :test do
   gem "rspec-rails", "~> 8.0"
   gem "capybara", "~> 3.39"
   gem "selenium-webdriver", "~> 4.15"
-  gem "standard", "~> 1.50"
+  gem "standard", "~> 1.51"
   gem "rubocop-rails", "~> 2.32"
   gem "faker"
 end
