@@ -1,4 +1,4 @@
-class Api::V1::PasswordsController < ApplicationController
+class Api::V1::PasswordsController < Api::V1::BaseController
   allow_unauthenticated_access
   before_action :set_user_by_token, only: %i[ edit update ]
 

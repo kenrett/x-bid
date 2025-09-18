@@ -1,4 +1,4 @@
-class Api::V1::CurrentUserController < ApplicationController
+class Api::V1::CurrentUserController < Api::V1::BaseController
   allow_unauthenticated_access
 
   def show

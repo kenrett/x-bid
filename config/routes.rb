@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
 
   # root "api/v1/auctions#index"
-  root "app#show"
+  root "api/v1/base#show"
 end

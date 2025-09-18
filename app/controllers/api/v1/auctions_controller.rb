@@ -1,4 +1,4 @@
-class Api::V1::AuctionsController < ApplicationController
+class Api::V1::AuctionsController < Api::V1::BaseController
   def index
     @auctions = Auction.all
     return render json: { error: "Not Found" }, status: :not_found unless @auctions
