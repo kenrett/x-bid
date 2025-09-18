@@ -16,7 +16,7 @@ const STRINGS = {
 
 export function Header({ user, onSignInClick, onSignOut }: HeaderProps) {
   const isAdmin = user?.role === UserRole.Admin;
-
+  console.log("Loading Header...")
   return (
     <header className={`w-full border-2 border-black flex items-center justify-between ${isAdmin ? 'bg-red-500' : ''}`}>
       <div>

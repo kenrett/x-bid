@@ -19,10 +19,10 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "scripts": {
-    "check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json",
-    "lint": "eslint app/frontend --report-unused-disable-directives --max-warnings 0",
+    "check": "tsc --noEmit",
+    "lint": "eslint client --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --check 'app/frontend/**/*.{ts,tsx,js}'",
+    "format": "prettier --check 'client/**/*.{ts,tsx,js}'",
     "format:fix": "npm run format -- --write"
   },
   "dependencies": {    

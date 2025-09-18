@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class Api::RegistrationsController < ApplicationController
   allow_unauthenticated_access
 
   def new

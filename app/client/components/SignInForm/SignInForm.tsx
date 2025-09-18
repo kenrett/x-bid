@@ -28,7 +28,7 @@ export function SignInForm({ flash, onSignIn }: SignInFormProps) {
 
     const submit = async () => {
         const formData = new FormData(event.currentTarget);
-        const response = await fetch('/session', {
+        const response = await fetch('/api/v1/session', {
           method: 'POST',
           body: formData,
           headers: {

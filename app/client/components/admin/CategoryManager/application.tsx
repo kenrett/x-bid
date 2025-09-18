@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-import { AuctionContainer, Header, SignInForm } from "../components";
+import { AuctionContainer } from "../components/features/Auction/AuctionContainer";
+import { Header } from "../components/layouts/Header";
+import { SignInForm } from "../components/ui/SignInForm/SignInForm";
 import type { User } from "../types";
 
 interface CurrentUserResponse {
@@ -20,14 +22,14 @@ function App() {
   const [view, setView] = useState<'auctions' | 'signIn'>('auctions');
 
   useEffect(() => {
-    fetch("/current_user")
+    fetch("/api/v1/current_user")
       .then((response) => response.json())
-      .then((data: CurrentUserResponse) => setUser(data.user))
+      .then((data) => setUser(data.user as User | null))
       .catch(() => setUser(null));
   }, []);
 
   useEffect(() => {
-    if (window.location.pathname === "/session/new") setView("signIn");
+    if (window.location.pathname === "/api/v1/session/new") setView("signIn");
   }, [])
 
   const handleSignIn = (signedInUser: User) => {
@@ -36,29 +38,27 @@ function App() {
   };
 
   const handleSignOut = () => {
-    const signOut = async () => {
-      const csrfToken = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')!.content;
-      try {
-        const response = await fetch('/session', {
-          method: 'DELETE',
-          headers: {
-            'X-CSRF-Token': csrfToken,
-            'Accept': 'application/json',
-          },
-        });
-        if (response.ok) {
-          setUser(null);
-        }
-      } catch (error) {
-        console.error("Sign out failed:", error);
+    const performSignOut = async () => {
+      const csrfToken = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content;
+      if (!csrfToken) {
+        console.error("CSRF token not found");
+        return;
       }
+      const response = await fetch('/api/v1/session', {
+        method: 'DELETE',
+        headers: {
+          'X-CSRF-Token': csrfToken,
+          'Accept': 'application/json',
+        },
+      });
+      if (response.ok) window.location.href = '/';
     };
-    void signOut();
+    void performSignOut();
   };
 
   return (
     <React.StrictMode>
-      <Header user={user} onSignInClick={() => setView("signIn")} onSignOut={handleSignOut}/>
+      <Header onSignInClick={() => setView("signIn")} />
       {view === 'auctions' ? <AuctionContainer/> : <SignInForm onSignIn={handleSignIn} flash={window.appData?.flash} />}
     </React.StrictMode>
   );

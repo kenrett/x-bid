@@ -19,11 +19,11 @@ export function AuctionContainer() {
   useEffect(() => {
     const fetchAuctions = async () => {
       try {
-        const response = await fetch('/auctions');
+        const response = await fetch('/api/v1/auctions');
         const data = (await response.json()) as AuctionData[];
         const auctionsWithNumbers = data.map((auction) => ({
           ...auction,
-          starting_price: parseFloat(auction.starting_price as unknown as string),
+          starting_price: parseFloat(String(auction.starting_price)),
         }));
         setAuctions(auctionsWithNumbers);
       } catch (error) {
@@ -38,9 +38,9 @@ export function AuctionContainer() {
   const handleAuctionClick = async (id: number) => {
     setLoading(true);
     try {
-      const response = await fetch(`/auctions/${id}`);
+      const response = await fetch(`/api/v1/auctions/${id}`);
       const auction = (await response.json()) as AuctionData;
-      auction.starting_price = parseFloat(auction.starting_price as unknown as string);
+      auction.starting_price = parseFloat(String(auction.starting_price));
       setSelectedAuction(auction);
     } catch (error) {
       console.error('Error fetching auction details:', error);

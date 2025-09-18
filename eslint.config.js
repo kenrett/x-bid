@@ -7,8 +7,8 @@ import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ["app/frontend/**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-  { ignores: ["app/frontend/routes/*"] },
+  { files: ["client/**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
+  { ignores: ["client/routes/*"] },
   {
     settings: {
       react: {
@@ -18,8 +18,7 @@ export default [
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        project: true,
       },
     },
   },

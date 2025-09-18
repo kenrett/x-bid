@@ -11,7 +11,7 @@ export const getCurrentUser = async (): Promise<User | null> => {
 
 export const signOut = async (): Promise<void> => {
   const csrfToken = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content ?? '';
-  const response = await fetch('/session', {
+  const response = await fetch('/api/v1/session', {
     method: 'DELETE',
     headers: {
       'X-CSRF-Token': csrfToken,
